@@ -20,6 +20,7 @@ import (
 	"github.com/mattermost/mattermost-server/utils"
 
 	builtinplugin "github.com/mattermost/mattermost-server/app/plugin"
+	"github.com/mattermost/mattermost-server/app/plugin/github"
 	"github.com/mattermost/mattermost-server/app/plugin/jira"
 	"github.com/mattermost/mattermost-server/app/plugin/ldapextras"
 
@@ -252,6 +253,7 @@ func (api *BuiltInPluginAPI) I18n(id string, r *http.Request) string {
 func (a *App) initBuiltInPlugins() {
 	plugins := map[string]builtinplugin.Plugin{
 		"jira":       &jira.Plugin{},
+		"github":     &github.Plugin{},
 		"ldapextras": &ldapextras.Plugin{},
 	}
 	for id, p := range plugins {
